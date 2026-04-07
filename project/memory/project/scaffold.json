@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "cofabric.memory.scaffold.v1",
+  "fileTree": [
+    {
+      "path": "package.json",
+      "purpose": "Core dependencies for Next.js, Supabase, OpenAI, Stripe, Tailwind",
+      "isEmpty": false
+    },
+    {
+      "path": "tsconfig.json",
+      "purpose": "TypeScript config with path aliases (@/*)",
+      "isEmpty": false
+    },
+    {
+      "path": "next.config.js",
+      "purpose": "Minimal Next.js configuration",
+      "isEmpty": false
+    },
+    {
+      "path": "postcss.config.js",
+      "purpose": "Tailwind and Autoprefixer setup",
+      "isEmpty": false
+    },
+    {
+      "path": "tailwind.config.js",
+      "purpose": "Tailwind config with custom primary color scheme",
+      "isEmpty": false
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "purpose": "Root layout with Inter font and metadata",
+      "isEmpty": false
+    },
+    {
+      "path": "src/app/globals.css",
+      "purpose": "Tailwind imports and base styling",
+      "isEmpty": false
+    },
+    {
+      "path": "src/app/page.tsx",
+      "purpose": "Landing page showcasing StudySync features with CTAs",
+      "isEmpty": false
+    },
+    {
+      "path": ".env.example",
+      "purpose": "Environment variable template for all required services",
+      "isEmpty": false
+    },
+    {
+      "path": "pr-docs/.gitkeep",
+      "purpose": "Placeholder for PR documentation",
+      "isEmpty": true
+    },
+    {
+      "path": "memory/.gitkeep",
+      "purpose": "Placeholder for memory storage",
+      "isEmpty": true
+    },
+    {
+      "path": "memory/project/.gitkeep",
+      "purpose": "Placeholder for project memory",
+      "isEmpty": true
+    },
+    {
+      "path": "memory/task/.gitkeep",
+      "purpose": "Placeholder for task memory",
+      "isEmpty": true
+    },
+    {
+      "path": "memory/agent/.gitkeep",
+      "purpose": "Placeholder for agent memory",
+      "isEmpty": true
+    },
+    {
+      "path": "memory/context/.gitkeep",
+      "purpose": "Placeholder for context memory",
+      "isEmpty": true
+    }
+  ],
+  "libraryExports": [],
+  "existingRoutes": [
+    {
+      "type": "page",
+      "path": "/",
+      "file": "src/app/page.tsx",
+      "httpMethods": null,
+      "isEmpty": false
+    }
+  ],
+  "databaseState": {
+    "migrationsExist": false,
+    "tables": []
+  },
+  "intentionallyEmpty": [
+    {
+      "file": "pr-docs/.gitkeep",
+      "intendedPurpose": "Placeholder for PR documentation"
+    },
+    {
+      "file": "memory/.gitkeep",
+      "intendedPurpose": "Placeholder for memory storage"
+    },
+    {
+      "file": "memory/project/.gitkeep",
+      "intendedPurpose": "Placeholder for project memory"
+    },
+    {
+      "file": "memory/task/.gitkeep",
+      "intendedPurpose": "Placeholder for task memory"
+    },
+    {
+      "file": "memory/agent/.gitkeep",
+      "intendedPurpose": "Placeholder for agent memory"
+    },
+    {
+      "file": "memory/context/.gitkeep",
+      "intendedPurpose": "Placeholder for context memory"
+    }
+  ]
+}

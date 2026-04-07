@@ -1,0 +1,460 @@
+{
+  "schemaVersion": "cofabric.memory.roadmap.v1",
+  "featuresNotYetImplemented": [
+    {
+      "name": "Authentication System",
+      "description": "Email/password authentication via Supabase with registration, login, logout, and password reset.",
+      "needs": [
+        "API routes",
+        "pages",
+        "middleware"
+      ]
+    },
+    {
+      "name": "Student Profiles",
+      "description": "User profiles with display name, username, bio, study focus, avatar, and stats.",
+      "needs": [
+        "DB tables",
+        "pages",
+        "API routes"
+      ]
+    },
+    {
+      "name": "Study Session System",
+      "description": "Users create structured study sessions with name, subject, duration, and tasks.",
+      "needs": [
+        "DB tables",
+        "pages",
+        "API routes"
+      ]
+    },
+    {
+      "name": "Study Logging",
+      "description": "Track completed study sessions with subject, tasks, duration, and notes.",
+      "needs": [
+        "DB tables",
+        "pages",
+        "API routes"
+      ]
+    },
+    {
+      "name": "Subject & Task Library",
+      "description": "Predefined subjects and tasks that are searchable.",
+      "needs": [
+        "DB tables",
+        "API routes"
+      ]
+    },
+    {
+      "name": "Follow System",
+      "description": "Peer follow/unfollow system between users.",
+      "needs": [
+        "DB tables",
+        "API routes"
+      ]
+    },
+    {
+      "name": "Activity Feed",
+      "description": "Shows study sessions of followed peers in reverse chronological order.",
+      "needs": [
+        "pages",
+        "API routes"
+      ]
+    },
+    {
+      "name": "Likes & Comments System",
+      "description": "Users can like and comment on study sessions with profanity filtering.",
+      "needs": [
+        "DB tables",
+        "API routes"
+      ]
+    },
+    {
+      "name": "AI Study Plan Generator",
+      "description": "Generates personalized weekly study plans based on user inputs.",
+      "needs": [
+        "API routes",
+        "pages"
+      ]
+    },
+    {
+      "name": "AI Study Tips",
+      "description": "Provides subject-specific text-based learning suggestions.",
+      "needs": [
+        "API routes",
+        "pages"
+      ]
+    },
+    {
+      "name": "Search System",
+      "description": "Fuzzy search for users and prefix search for subjects.",
+      "needs": [
+        "pages",
+        "API routes"
+      ]
+    },
+    {
+      "name": "Subscription System",
+      "description": "Freemium model with Stripe integration for Pro tier upgrade.",
+      "needs": [
+        "DB tables",
+        "API routes",
+        "pages"
+      ]
+    },
+    {
+      "name": "Content Moderation",
+      "description": "AI moderation for hate speech, spam, and abuse in user-generated content.",
+      "needs": [
+        "API routes",
+        "DB tables"
+      ]
+    }
+  ],
+  "databaseTablesToCreate": [
+    {
+      "name": "profiles",
+      "columnsSpecifiedInSpec": [
+        {
+          "name": "display_name",
+          "type": "text",
+          "notes": "unique"
+        },
+        {
+          "name": "username",
+          "type": "text",
+          "notes": "URL-safe, unique"
+        },
+        {
+          "name": "bio",
+          "type": "text",
+          "notes": "max 300 chars"
+        },
+        {
+          "name": "study_focus",
+          "type": "text",
+          "notes": "e.g., STEM, Humanities"
+        },
+        {
+          "name": "avatar",
+          "type": "text",
+          "notes": "optional"
+        },
+        {
+          "name": "study_hours",
+          "type": "integer",
+          "notes": "stats"
+        },
+        {
+          "name": "tasks_completed",
+          "type": "integer",
+          "notes": "stats"
+        },
+        {
+          "name": "followers",
+          "type": "integer",
+          "notes": "stats"
+        }
+      ],
+      "schemaDetailsInSpec": true
+    },
+    {
+      "name": "study_sessions",
+      "columnsSpecifiedInSpec": [
+        {
+          "name": "name",
+          "type": "text",
+          "notes": null
+        },
+        {
+          "name": "subject",
+          "type": "text",
+          "notes": null
+        },
+        {
+          "name": "duration",
+          "type": "integer",
+          "notes": "minutes"
+        },
+        {
+          "name": "tasks",
+          "type": "text",
+          "notes": "tasks or topics per session"
+        }
+      ],
+      "schemaDetailsInSpec": true
+    },
+    {
+      "name": "study_logs",
+      "columnsSpecifiedInSpec": [
+        {
+          "name": "subject",
+          "type": "text",
+          "notes": null
+        },
+        {
+          "name": "tasks_completed",
+          "type": "text",
+          "notes": null
+        },
+        {
+          "name": "duration",
+          "type": "integer",
+          "notes": "minutes"
+        },
+        {
+          "name": "notes",
+          "type": "text",
+          "notes": null
+        }
+      ],
+      "schemaDetailsInSpec": true
+    },
+    {
+      "name": "subjects",
+      "columnsSpecifiedInSpec": [
+        {
+          "name": "name",
+          "type": "text",
+          "notes": null
+        },
+        {
+          "name": "category",
+          "type": "text",
+          "notes": null
+        }
+      ],
+      "schemaDetailsInSpec": true
+    },
+    {
+      "name": "tasks",
+      "columnsSpecifiedInSpec": [
+        {
+          "name": "name",
+          "type": "text",
+          "notes": null
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "notes": null
+        }
+      ],
+      "schemaDetailsInSpec": true
+    },
+    {
+      "name": "follows",
+      "columnsSpecifiedInSpec": [],
+      "schemaDetailsInSpec": false
+    },
+    {
+      "name": "likes",
+      "columnsSpecifiedInSpec": [],
+      "schemaDetailsInSpec": false
+    },
+    {
+      "name": "comments",
+      "columnsSpecifiedInSpec": [
+        {
+          "name": "content",
+          "type": "text",
+          "notes": "max 500 characters"
+        }
+      ],
+      "schemaDetailsInSpec": false
+    },
+    {
+      "name": "subscriptions",
+      "columnsSpecifiedInSpec": [],
+      "schemaDetailsInSpec": false
+    }
+  ],
+  "apiEndpointsToBuild": [
+    {
+      "method": "POST",
+      "path": "/api/auth/register",
+      "description": "Register new user with email, password, and display name",
+      "authRequired": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "description": "Authenticate user with email and password",
+      "authRequired": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/logout",
+      "description": "End user session",
+      "authRequired": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/reset-password",
+      "description": "Send password reset email",
+      "authRequired": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/profiles/[username]",
+      "description": "Get user profile by username",
+      "authRequired": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/profiles",
+      "description": "Update user profile",
+      "authRequired": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/sessions",
+      "description": "Get user's study sessions",
+      "authRequired": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/sessions",
+      "description": "Create new study session",
+      "authRequired": true
+    },
+    {
+      "method": "PUT",
+      "path": "/api/sessions/[id]",
+      "description": "Edit study session",
+      "authRequired": true
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/sessions/[id]",
+      "description": "Delete study session",
+      "authRequired": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/study-logs",
+      "description": "Get user's study logs",
+      "authRequired": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/study-logs",
+      "description": "Create study log entry",
+      "authRequired": true
+    },
+    {
+      "method": "PUT",
+      "path": "/api/study-logs/[id]",
+      "description": "Edit study log entry",
+      "authRequired": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/subjects",
+      "description": "Get available subjects from library",
+      "authRequired": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/tasks",
+      "description": "Get available tasks from library",
+      "authRequired": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/follows",
+      "description": "Follow another user",
+      "authRequired": true
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/follows/[userId]",
+      "description": "Unfollow a user",
+      "authRequired": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/feed",
+      "description": "Get activity feed of followed users' study sessions",
+      "authRequired": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/likes",
+      "description": "Like a study session",
+      "authRequired": true
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/likes/[sessionId]",
+      "description": "Unlike a study session",
+      "authRequired": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/comments",
+      "description": "Comment on a study session",
+      "authRequired": true
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/comments/[id]",
+      "description": "Delete own comment",
+      "authRequired": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/comments/[sessionId]",
+      "description": "Get comments for a study session",
+      "authRequired": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/ai/study-plan",
+      "description": "Generate personalized study plan using AI",
+      "authRequired": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/ai/study-tips",
+      "description": "Get AI-generated study tips",
+      "authRequired": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/search/users",
+      "description": "Search for users by name",
+      "authRequired": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/search/subjects",
+      "description": "Search for subjects by name",
+      "authRequired": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/stripe/checkout",
+      "description": "Create Stripe checkout session for Pro upgrade",
+      "authRequired": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/stripe/webhooks",
+      "description": "Handle Stripe webhooks for subscription status",
+      "authRequired": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/moderate",
+      "description": "Moderate user-generated content for policy violations",
+      "authRequired": true
+    }
+  ],
+  "openQuestions": [
+    "Should users be able to create custom tasks?",
+    "Should study sessions be shareable publicly via link?",
+    "Should streak tracking be included in MVP?",
+    "Should study groups or teams be supported in MVP?"
+  ]
+}

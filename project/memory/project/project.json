@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "cofabric.memory.project.v1",
+  "name": "StudySync",
+  "oneLineDescription": "AI-Powered Study & Collaboration Platform for students",
+  "whatItIs": "StudySync is a web-based platform for students to organize study schedules, collaborate with peers, and receive AI-assisted learning suggestions. It combines task management, study tracking, and intelligent recommendations to help students stay productive.",
+  "stack": [
+    {
+      "name": "Next.js",
+      "version": "^14.0.4",
+      "purpose": "React framework with App Router"
+    },
+    {
+      "name": "@supabase/supabase-js",
+      "version": "^2.39.0",
+      "purpose": "Database and authentication"
+    },
+    {
+      "name": "openai",
+      "version": "^4.20.1",
+      "purpose": "AI study plans and tips"
+    },
+    {
+      "name": "stripe",
+      "version": "^14.9.0",
+      "purpose": "Payment processing"
+    },
+    {
+      "name": "react",
+      "version": "^18.2.0",
+      "purpose": "UI framework"
+    },
+    {
+      "name": "typescript",
+      "version": "^5.3.3",
+      "purpose": "Type safety"
+    },
+    {
+      "name": "tailwindcss",
+      "version": "^3.4.0",
+      "purpose": "Styling framework"
+    },
+    {
+      "name": "tailwind-merge",
+      "version": "^2.2.0",
+      "purpose": "Tailwind utility combining"
+    },
+    {
+      "name": "clsx",
+      "version": "^2.0.0",
+      "purpose": "Conditional class names"
+    },
+    {
+      "name": "lucide-react",
+      "version": "^0.294.0",
+      "purpose": "Icon library"
+    }
+  ],
+  "externalIntegrations": [
+    {
+      "service": "Supabase",
+      "envVars": [
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "SUPABASE_SERVICE_ROLE_KEY"
+      ],
+      "clientLocation": null
+    },
+    {
+      "service": "OpenAI",
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "clientLocation": null
+    },
+    {
+      "service": "Stripe",
+      "envVars": [
+        "STRIPE_SECRET_KEY",
+        "STRIPE_WEBHOOK_SECRET",
+        "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
+      ],
+      "clientLocation": null
+    }
+  ],
+  "coreUserFlows": [
+    "Register (email, password, display name)",
+    "Create session",
+    "Track completed study sessions",
+    "Shows study sessions of followed peers"
+  ],
+  "outOfScope": [
+    "Native mobile apps",
+    "Integration with learning management systems (LMS)",
+    "Video or audio uploads",
+    "Real-time chat",
+    "Gamified leaderboards or points",
+    "Notifications system",
+    "AI question answering or tutoring (beyond text suggestions)",
+    "Multi-language support"
+  ]
+}
